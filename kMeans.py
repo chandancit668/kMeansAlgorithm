@@ -10,6 +10,8 @@
 
 
 import math as m
+from matplotlib import pyplot as plt
+
 cluster_list = []
 Points = [
     (2, 10),
@@ -51,10 +53,24 @@ def kNN(threshold, points):
     pass
 
 
+def plotting(plotlist):
+    for i in range(len(plotlist)):
+        cl = plotlist[i]
+        X, Y = [], []
+        for p in cl:
+            X.append(p[0])
+            Y.append(p[1])
+        plt.scatter(X, Y)
+    plt.axis([0, 12, 0, 12])
+    plt.xlabel('X axis')
+    plt.ylabel('Y axis')
+    plt.show()
+    pass
 
 
 if __name__ == '__main__':
     threshold = 4
     kNN(threshold, Points)
+    plotting(cluster_list)
     print(cluster_list)
 
